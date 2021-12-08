@@ -1,6 +1,8 @@
 <template>
   <navbar/>
-  <router-view/>
+  <div class="main">
+    <router-view/>
+  </div>
   <footer-blogs/>
 </template>
 
@@ -17,4 +19,7 @@ export default {
 </script>
 
 <style lang="scss">
+.main {
+  position: relative;
+}
 </style>

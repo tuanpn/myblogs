@@ -1,6 +1,7 @@
 <template>
     <div>
-        <section id="colored-dna-back" class="hero is-white is-fullheight">
+        <section id="colored-dna-back" class="hero is-white is-medium">
+            <div id="particles-js"></div>
             <div class="hero-body">
                 <div class="container">
                     <div class="columns  is-vcentered reverse-columns">
@@ -10,7 +11,7 @@
                           is-5-desktop is-offset-1-desktop
                           is-5-widescreen is-offset-1-widescreen
                           is-5-fullhd " data-aos="fade-down">
-                            <h1 class="title titled is-1 mb-6">
+                            <h1 class="title titled is-1 mb-6 has-text-white">
                                 {{ $t('title') }}
                             </h1>
                             <div class="buttons">
@@ -24,8 +25,8 @@
                           is-4-desktop is-offset-1-desktop
                           is-7-widescreen is-offset-1-widescreen
                           is-4-fullhd is-offset-1-fullhd">
-                            <figure class="image is-square">
-                                <img src="../assets/knowledge.png">
+                            <figure class="image is-4by3">
+                                <img class="is-rounded" src="../assets/me.jpg">
                             </figure>
                         </div>
 
@@ -34,7 +35,7 @@
             </div>
         </section>
 
-        <section class="hero is-white is-fullheight">
+        <section class="hero is-white is-medium">
             <div class="hero-body">
                 <div class="container">
                     <div class="columns  is-vcentered">
@@ -67,7 +68,7 @@
             </div>
         </section>
 
-        <section class="hero is-white is-fullheight">
+        <section class="hero is-white is-medium">
             <div class="hero-body">
                 <div class="container">
                     <div class="columns  is-vcentered reverse-columns">
@@ -104,7 +105,7 @@
             </div>
         </section>
 
-        <section class="hero is-white is-fullheight">
+        <section class="hero is-white is-medium">
             <div class="hero-body">
                 <div class="container">
                     <div class="columns  is-vcentered">
@@ -137,7 +138,7 @@
             </div>
         </section>
 
-        <section class="hero is-white is-fullheight">
+        <section class="hero is-white is-medium">
             <div class="hero-body">
                 <div class="container">
                     <div class="columns  is-vcentered reverse-columns">
@@ -189,10 +190,10 @@
 </template>
 
 <script>
-import { butter } from '../plugins/buttercms'
 import Typewriter from 'typewriter-effect/dist/core';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+import particles from '../assets/particles.json'
 
 export default {
     name: "BlogHomes",
@@ -207,6 +208,9 @@ export default {
             .typeString("<strong>Tri thức </strong> là vô tận. ")
             .pauseFor(1000)
             .start();
+        this.$nextTick(() => {
+            window.particlesJS('particles-js', particles)
+        })
     }
 }
 </script>
@@ -233,9 +237,16 @@ export default {
     line-height: 36px !important;
 }
 #colored-dna-back {
+    position: relative;
     /*background: url(../images/colored-dna.svg);*/
     background-position: center;
     background-size: cover;
     /*background-color: #212931;*/
+}
+#particles-js {
+    position : absolute;
+    background-color: #b61924;
+    width: 100%;
+    height: 100%;
 }
 </style>

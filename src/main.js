@@ -5,6 +5,7 @@ import router from './router'
 import store from './store'
 import '@/assets/main.scss'
 import lang from './lang'
+import 'particles.js'
 
 const app = createApp(App)
 

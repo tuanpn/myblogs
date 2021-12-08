@@ -1,6 +1,6 @@
 export default {
-    titleWeb: 'Dế mèn',
-    title: 'Blog của Dế mèn',
+    titleWeb: 'Dế Mèn',
+    title: 'Blog của Dế Mèn',
     more: 'Nhiều hơn ...',
     me: 'Tôi',
     technology: 'Khoa học và công nghệ',
