@@ -1,7 +1,21 @@
-import { createApp } from 'vue'
+import { createApp, ref } from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
+import '@/assets/main.scss'
+import lang from './lang'
 
-createApp(App).use(store).use(router).mount('#app')
+const app = createApp(App)
+
+function changeLanguage (langType) {
+    app.config.globalProperties.$language.value = langType
+    app.config.globalProperties.$t = (key) => {
+        const langType = app.config.globalProperties.$language.value
+        return lang[langType] ? lang[langType][key] : lang['VN'][key]
+    }
+}
+app.config.globalProperties.$language = ref('VN')
+changeLanguage('VN')
+
+app.use(store).use(router).mount('#app')
