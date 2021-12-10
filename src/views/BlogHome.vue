@@ -14,9 +14,15 @@
                             <h1 class="title titled is-1 mb-6 has-text-white">
                                 {{ $t('title') }}
                             </h1>
-                            <div class="buttons">
-                                <button class="button is-yellow">{{ $t('technology') }}</button>
-                                <button class="button">{{ $t('me') }}</button>
+                            <div class="buttons are-medium">
+                                <router-link class="button is-primary is-rounded"
+                                             to="technology">
+                                    {{ $t('technology') }}...
+                                </router-link>
+                                <router-link class="button is-primary is-rounded"
+                                             to="me">
+                                    {{ $t('me') }}...
+                                </router-link>
                             </div>
                         </div>
                         <div data-aos="fade-right" class="column

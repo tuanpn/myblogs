@@ -1,8 +1,8 @@
 <template>
     <div id="blog-post"
          class="container">
-        <div class="button is-loading is-large" style="width: 100%; border: none" v-if="loading"></div>
-        <div class="column is-11-mobile
+        <div class="button is-loading is-large is-fullwidth" style="border: none" v-if="loading"></div>
+        <div class="column is-12-mobile is-offset-0-mobile
                           is-10-tablet is-offset-1-tablet
                           is-8-desktop is-offset-2-desktop
                           is-8-widescreen is-offset-2-widescreen

@@ -6,14 +6,19 @@
                     <img src="../assets/logo.png" alt="Logo">
                     <h2 class="ml-2 is-size-5 has-text-weight-semibold">{{ $t('titleWeb') }}</h2>
                 </a>
-                <span class="navbar-burger burger" data-target="navbarMenu">
+                <span
+                        class="navbar-burger burger"
+                        :class="isActive ? 'is-active' : ''"
+                        data-target="navbarMenu"
+                        @click="isActive = !isActive"
+                >
                   <span></span>
                   <span></span>
                   <span></span>
                 </span>
             </div>
 
-            <div id="navbarMenu" class="navbar-menu">
+            <div id="navbarMenu" class="navbar-menu" :class="isActive? 'is-active' : ''">
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="control has-icons-left">
@@ -29,7 +34,7 @@
                             :key="tab.key"
                             :class="{ 'is-active': currentTab === tab.key }"
                             :to="tab.url"
-                            @click="currentTab = tab.key">
+                            @click="clickNavbarItem(tab)">
                         {{ tab.name }}
                     </router-link>
                 </div>
@@ -68,7 +73,14 @@ export default {
                 name: 'Tôi',
                 url: 'me',
                 key: 'me'
-            }]
+            }],
+            isActive: false
+        }
+    },
+    methods: {
+        clickNavbarItem (tab) {
+            this.currentTab = tab.key
+            this.isActive = false
         }
     }
 }
