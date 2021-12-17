@@ -1,6 +1,8 @@
 <template>
     <nav class="navbar">
-        <div class="container">
+        <div class="container"
+             v-click-outside="doClickOutsideNav"
+        >
             <div class="navbar-brand">
                 <a class="navbar-item" href="../">
                     <img src="../assets/logo.png" alt="Logo">
@@ -81,6 +83,9 @@ export default {
         clickNavbarItem (tab) {
             this.currentTab = tab.key
             this.isActive = false
+        },
+        doClickOutsideNav () {
+            if (this.isActive) this.isActive = false
         }
     }
 }

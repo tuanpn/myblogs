@@ -15,10 +15,12 @@
                                 {{ $t('title') }}
                             </h1>
                             <div class="buttons are-medium">
-                                <router-link class="button is-primary is-rounded"
-                                             to="technology">
+                                <a class="button is-primary is-rounded"
+                                             to="technology"
+                                   @click="scrollToElement($refs.technologySectionRef)"
+                                >
                                     {{ $t('technology') }}...
-                                </router-link>
+                                </a>
                                 <router-link class="button is-primary is-rounded"
                                              to="me">
                                     {{ $t('me') }}...
@@ -41,7 +43,7 @@
             </div>
         </section>
 
-        <section class="hero is-white is-medium">
+        <section ref="technologySectionRef" class="hero is-white is-medium">
             <div class="hero-body">
                 <div class="container">
                     <div class="columns  is-vcentered">
@@ -217,6 +219,13 @@ export default {
         this.$nextTick(() => {
             window.particlesJS('particles-js', particles)
         })
+    },
+    methods: {
+        scrollToElement(el) {
+            if (el) {
+                el.scrollIntoView({behavior: 'smooth'});
+            }
+        }
     }
 }
 </script>

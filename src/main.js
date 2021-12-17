@@ -6,6 +6,7 @@ import store from './store'
 import '@/assets/main.scss'
 import lang from './lang'
 import 'particles.js'
+import { clickOutside } from './directives/mydirectives.js'
 
 const app = createApp(App)
 
@@ -19,4 +20,5 @@ function changeLanguage (langType) {
 app.config.globalProperties.$language = ref('VN')
 changeLanguage('VN')
 
+app.directive("click-outside", clickOutside)
 app.use(store).use(router).mount('#app')
