@@ -30,11 +30,6 @@ const routes = [
     component: BlogTopic
   },
   {
-    path: '/me',
-    name: 'me',
-    component: BlogHome
-  },
-  {
     path: '/blog/:slug',
     name: 'blog-post',
     component: BlogPost

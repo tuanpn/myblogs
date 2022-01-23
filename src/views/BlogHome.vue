@@ -22,7 +22,7 @@
                                     {{ $t('technology') }}...
                                 </a>
                                 <router-link class="button is-primary is-rounded"
-                                             to="me">
+                                             to="/blog/me">
                                     {{ $t('me') }}...
                                 </router-link>
                             </div>

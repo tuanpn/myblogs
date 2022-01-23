@@ -73,7 +73,7 @@ export default {
                 key: 'orography'
             }, {
                 name: 'Tôi',
-                url: 'me',
+                url: '/blog/me',
                 key: 'me'
             }],
             isActive: false
