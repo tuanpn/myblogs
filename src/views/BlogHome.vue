@@ -21,7 +21,7 @@
                                 >
                                     {{ $t('technology') }}...
                                 </a>
-                                <router-link class="button is-primary is-rounded"
+                                <router-link class="button is-white is-rounded"
                                              to="/blog/me">
                                     {{ $t('me') }}...
                                 </router-link>
@@ -53,8 +53,8 @@
                           is-4-desktop is-offset-1-desktop
                           is-4-widescreen is-offset-1-widescreen
                           is-4-fullhd is-offset-1-fullhd">
-                            <figure class="image is-square">
-                                <img src="../assets/undraw_Camera_re_cnp4.svg">
+                            <figure class="image is-4by3">
+                                <img class="is-rounded" src="../assets/me.jpg">
                             </figure>
                         </div>
                         <div data-aos="fade-down" class="column
@@ -103,8 +103,8 @@
                           is-4-desktop is-offset-1-desktop
                           is-4-widescreen is-offset-1-widescreen
                           is-4-fullhd is-offset-1-fullhd">
-                            <figure class="image is-square">
-                                <img src="../assets/undraw_Camera_re_cnp4.svg">
+                            <figure class="image is-4by3">
+                                <img class="is-rounded" src="../assets/me.jpg">
                             </figure>
                         </div>
 
@@ -123,8 +123,8 @@
                           is-4-desktop is-offset-1-desktop
                           is-4-widescreen is-offset-1-widescreen
                           is-4-fullhd is-offset-1-fullhd">
-                            <figure class="image is-square">
-                                <img src="../assets/undraw_Camera_re_cnp4.svg">
+                            <figure class="image is-4by3">
+                                <img class="is-rounded" src="../assets/me.jpg">
                             </figure>
                         </div>
                         <div data-aos="fade-down" class="column
@@ -169,8 +169,8 @@
                           is-4-desktop is-offset-1-desktop
                           is-4-widescreen is-offset-1-widescreen
                           is-4-fullhd is-offset-1-fullhd">
-                            <figure class="image is-square">
-                                <img src="../assets/undraw_Camera_re_cnp4.svg">
+                            <figure class="image is-4by3">
+                                <img class="is-rounded" src="../assets/me.jpg">
                             </figure>
                         </div>
 

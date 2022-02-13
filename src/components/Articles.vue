@@ -4,7 +4,7 @@
          class="tile is-ancestor">
         <div v-for="(post) in postGroup"
              :key="post.slug"
-             class="tile is-parent">
+             class="tile is-parent is-4">
             <article class="tile is-child box">
                 <router-link class="content is-medium"
                              :to="/blog/ + post.slug"
