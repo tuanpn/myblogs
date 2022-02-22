@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar">
+    <nav class="navbar navbar-height">
         <div class="container"
              v-click-outside="doClickOutsideNav"
         >

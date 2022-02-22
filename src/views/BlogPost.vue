@@ -3,7 +3,7 @@
          class="container mt-5">
         <div class="button is-loading is-large is-fullwidth" style="border: none" v-if="loading"></div>
         <div class="columns">
-            <div class="column is-12-mobile is-offset-0-mobile
+            <div class="column is-10-mobile is-offset-1-mobile
                           is-10-tablet is-offset-1-tablet
                           is-8-desktop is-offset-2-desktop
                           is-8-widescreen is-offset-2-widescreen
@@ -15,7 +15,9 @@
                 <div v-html="post.body"></div>
                 <div class="mb-6"></div>
             </div>
-            <div class="column is-2-desktop is-12-mobile">
+            <div class="column is-2-desktop
+                        is-12-mobile is-offset-1-mobile
+                      is-12-tablet  is-offset-0-tablet">
                 <right-aside/>
             </div>
         </div>
@@ -45,6 +47,7 @@ export default {
             butter.post.retrieve(this.$route.params.slug)
                 .then(res => {
                     this.post = res.data.data
+                    this.$store.commit('setCurrentPost', this.post)
                     this.loading = false
                     if (!this.$store.state.currentCategory) {
                         let category = this.post.categories[0]
