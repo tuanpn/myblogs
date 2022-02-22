@@ -24,6 +24,9 @@ export default {
     },
     methods: {
         getPosts() {
+            if (this.$route.name.includes('blog')) {
+                return
+            }
             butter.post.list({
                 page: 1,
                 page_size: 10,
@@ -35,6 +38,8 @@ export default {
                 for (i = 0,j = array.length; i < j; i += chunk) {
                     this.posts.push(array.slice(i, i + chunk))
                 }
+                this.$store.commit('saveLastPosts', {category: this.$route.name, posts: array})
+                this.$store.commit('setCurrentCategory', this.$route.name)
                 this.loading = false
             })
         }

@@ -1,12 +1,29 @@
 import { createStore } from 'vuex'
 
 export default createStore({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
+    state: {
+        lastPostObj: {},
+        currentCategory: null,
+        currentPost: null
+    },
+    getters: {
+        getLastPost(state) {
+            return state.currentCategory ? state.lastPostObj[state.currentCategory] : []
+        }
+    },
+    mutations: {
+        saveLastPosts (state, { category, posts} ) {
+          state.lastPostObj[category] = posts
+        },
+        setCurrentCategory(state, category) {
+          state.currentCategory = category
+        },
+        setCurrentPost(state, post) {
+            state.currentPost = post
+        }
+    },
+    actions: {
+    },
+    modules: {
+    }
 })
