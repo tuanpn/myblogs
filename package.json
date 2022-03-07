@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "serve-server": "vue-cli-service serve ./src/mainbackend.js",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "algoliasearch": "^4.12.1",
     "aos": "^2.3.4",
     "bulma": "^0.9.3",
     "buttercms": "^1.2.8",

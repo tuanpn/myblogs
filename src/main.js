@@ -7,6 +7,7 @@ import '@/assets/main.scss'
 import lang from './lang'
 import 'particles.js'
 import { clickOutside } from './directives/mydirectives.js'
+import './plugins/algoliasearch'
 
 const app = createApp(App)
 

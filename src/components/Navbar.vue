@@ -22,14 +22,6 @@
 
             <div id="navbarMenu" class="navbar-menu" :class="isActive? 'is-active' : ''">
                 <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="control has-icons-left">
-                            <input class="input is-rounded" type="email" placeholder="Search">
-                            <span class="icon is-left">
-                            <i class="fa fa-search"></i>
-                        </span>
-                        </div>
-                    </div>
                     <router-link
                             class="navbar-item is-size-5 has-text-weight-semibold"
                             v-for="(tab) in tabs"
@@ -39,6 +31,14 @@
                             @click="clickNavbarItem(tab)">
                         {{ tab.name }}
                     </router-link>
+                    <div class="navbar-item">
+                        <div class="control has-icons-left">
+                            <input class="input is-rounded" type="email" placeholder="Search">
+                            <span class="icon is-left">
+                            <i class="fa fa-search"></i>
+                        </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -46,6 +46,8 @@
 </template>
 
 <script>
+import { doAlgoliaSearch } from '../plugins/algoliasearch'
+
 export default {
     name: "Navbar",
     data: function () {
@@ -71,12 +73,9 @@ export default {
                 name: 'Văn học',
                 url: '/orography',
                 key: 'orography'
-            }, {
-                name: 'Tôi',
-                url: '/blog/me',
-                key: 'me'
             }],
-            isActive: false
+            isActive: false,
+            textSearch: ''
         }
     },
     methods: {
@@ -86,6 +85,15 @@ export default {
         },
         doClickOutsideNav () {
             if (this.isActive) this.isActive = false
+        }
+    },
+    watch: {
+        textSearch: function (text) {
+            if (text.length > 1) {
+                doAlgoliaSearch(text, (hits) => {
+                    debugger
+                })
+            }
         }
     }
 }
