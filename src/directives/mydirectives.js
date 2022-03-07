@@ -8,9 +8,11 @@ const clickOutside = {
             }
         };
         document.addEventListener("touchstart", el.clickOutsideEvent)
+        document.addEventListener("click", el.clickOutsideEvent)
     },
     unmounted: el => {
         document.removeEventListener("touchstart", el.clickOutsideEvent)
+        document.removeEventListener("click", el.clickOutsideEvent)
     },
 }
 

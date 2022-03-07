@@ -1,0 +1,12 @@
+.popover {
+  position: relative;
+  .popover-content {
+    position: absolute;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #f2f2f2;
+  }
+  .is-popover-bottom {
+    top: 100%;
+  }
+}

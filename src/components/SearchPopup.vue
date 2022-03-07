@@ -1,27 +1,50 @@
 <template>
-    <div class="popover is-popover-bottom">
-        <button class="button is-primary popover-trigger">Table Popover</button>
-        <div class="popover-content">
-            <table class="table">
-                <thead>
-                <tr><th>Fruit</th><th>Color</th></tr>
-                </thead>
-                <tbody>
-                <tr><td>Apple</td><td>Red</td></tr>
-                <tr><td>Banana</td><td>Yellow</td></tr>
-                <tr><td>Cucumber</td><td>Green</td></tr>
-                </tbody>
-            </table>
-        </div>
+    <div class="search-popup card">
+        <router-link
+                v-for="(searchItem, index) in data"
+                :key="searchItem.objectID + '-' + index"
+                :to="/blog/ + searchItem.objectID"
+                @click="$emit('clickChoice', searchItem)"
+        >
+            <div class="card">
+                <div class="card-content">
+                    <p class="title is-size-6 has-text-dark">
+                        {{ searchItem.title }}
+                    </p>
+                    <div class="content is-size-6">
+                        {{ searchItem.summary }}
+                    </div>
+                </div>
+            </div>
+        </router-link>
     </div>
 </template>
 
 <script>
 export default {
-    name: "SearchPopup"
+    name: "SearchPopup",
+    props: {
+        data: Array
+    },
+    methods: {
+        doClickOutside: function () {
+            this.$emit('hide')
+        }
+    }
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.search-popup {
+    width: 400px;
+    max-height: 400px;
+    padding: 8px;
+    overflow-y: auto;
+    .card {
+        margin: 8px 0;
+    }
+    .card:hover {
+        background-color: hsl(0, 0%, 96%);
+    }
+}
 </style>

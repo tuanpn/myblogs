@@ -21,6 +21,7 @@ export default {
         'xã hội, về phong tục tập quán,… và quan trọng hơn là giúp họ khám phá những vấn đề xã hôi, những bí ẩn trong đời ' +
         'sống tình cảm và tâm hồn của con người. Văn học cũng là một hình thức để tiếp cận chân lí.',
     slogan: 'Bạn thấy những con số rất khô khan, bởi vì bạn chưa thấy được sự kỳ diệu của con số.',
-    lastBlogDay: 'Bài viết gần đây'
+    lastBlogDay: 'Bài viết gần đây',
+    textSearch: 'Tìm kiếm'
 
 }
