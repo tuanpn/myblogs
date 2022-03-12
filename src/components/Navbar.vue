@@ -51,6 +51,7 @@
                                     <SearchPopup
                                         :data="dataSearchs"
                                         @clickChoice="clickedChoiceSearchItem"
+                                        v-click-outside="doClickOutsideSearchPopup"
                                     />
                                 </div>
                             </div>
@@ -110,6 +111,7 @@ export default {
         },
         clickedChoiceSearchItem(dataSearch) {
             this.isActiveSearch = false
+            this.textSearch = ''
         },
         focusSearchInput() {
             this.focusflag = true
@@ -119,7 +121,12 @@ export default {
         },
         blurSearchInput() {
             this.focusflag = false
-            this.isActiveSearch = false
+        },
+        doClickOutsideSearchPopup() {
+            if (!this.focusflag) {
+                this.isActiveSearch = false
+                this.focusflag = false
+            }
         }
     },
     watch: {

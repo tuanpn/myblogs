@@ -36,8 +36,8 @@ export default {
 
 <style lang="scss" scoped>
 .search-popup {
-    width: 400px;
-    max-height: 400px;
+    width: 600px;
+    max-height: 75vh;
     padding: 8px;
     overflow-y: auto;
     .card {
