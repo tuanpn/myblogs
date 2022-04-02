@@ -5,7 +5,8 @@
     <modal :show="$showModal.value" @close="$showModal.value = false">
       <template #body>
         <search-item
-                @close="$showModal.value = false"/>
+                @close="$showModal.value = false"
+        />
       </template>
     </modal>
   </div>

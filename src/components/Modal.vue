@@ -9,15 +9,16 @@
 <template>
     <Transition name="modal">
         <div v-if="show" class="modal-mask">
-            <div class="modal-wrapper"
-            >
-                <div class="modal-container">
+            <div class="modal-wrapper">
+                <div class="modal-container"
+                     @click.self="$emit('close')"
+                >
                     <div class="modal-header">
-                        <button class="button icon-close is-danger">
-                            <span class="icon is-small">
-                              <i class="fa fa-times" @click="$emit('close')"></i>
-                            </span>
-                        </button>
+                        <!--<button class="button icon-close is-danger">-->
+                            <!--<span class="icon is-small">-->
+                              <!--<i class="fa fa-times" @click="$emit('close')"></i>-->
+                            <!--</span>-->
+                        <!--</button>-->
                         <slot name="header"></slot>
                     </div>
 
@@ -34,11 +35,15 @@
     </Transition>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .icon-close {
-    position: absolute;
+    position: absolute !important;
     top: 0;
     right: 0;
     font-size: 16px;
+    .is-small {
+        width: 24px !important;
+        height: 24px !important;
+    }
 }
 </style>

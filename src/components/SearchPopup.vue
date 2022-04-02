@@ -12,7 +12,7 @@
                         {{ searchItem.title }}
                     </p>
                     <div class="content is-size-6">
-                        {{ searchItem.summary }}
+                        {{ searchItem.summary.length > 100 ? searchItem.summary.substring(0, 100) + "..." : searchItem.summary }}
                     </div>
                 </div>
             </div>
