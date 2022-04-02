@@ -8,6 +8,11 @@
                     <img src="../assets/logo.png" alt="Logo">
                     <h2 class="ml-2 is-size-5 has-text-weight-semibold">{{ $t('titleWeb') }}</h2>
                 </a>
+                <a class="navbar-item is-hidden-desktop margin-left-auto"
+                   @click="$showModal.value = true"
+                >
+                    <span class="icon is-left"><i class="fa fa-search"></i></span>
+                </a>
                 <span
                         class="navbar-burger burger"
                         :class="isActive ? 'is-active' : ''"
@@ -19,7 +24,6 @@
                   <span></span>
                 </span>
             </div>
-
             <div id="navbarMenu" class="navbar-menu" :class="isActive? 'is-active' : ''">
                 <div class="navbar-end">
                     <router-link
@@ -31,31 +35,8 @@
                             @click="clickNavbarItem(tab)">
                         {{ tab.name }}
                     </router-link>
-                    <div class="navbar-item">
-                        <div class="dropdown is-right"
-                             :class="isActiveSearch ? 'is-active' : ''"
-                        >
-                            <div class="control has-icons-left dropdown-trigger">
-                                <input
-                                        class="input is-rounded"
-                                        type="text"
-                                        :placeholder="$t('textSearch')"
-                                        v-model="textSearch"
-                                        @focus="focusSearchInput"
-                                        @blur="blurSearchInput"
-                                >
-                                <span class="icon is-left"><i class="fa fa-search"></i></span>
-                            </div>
-                            <div class="dropdown-menu" id="dropdown-menu2" role="menu">
-                                <div class="dropdown-content">
-                                    <SearchPopup
-                                        :data="dataSearchs"
-                                        @clickChoice="clickedChoiceSearchItem"
-                                        v-click-outside="doClickOutsideSearchPopup"
-                                    />
-                                </div>
-                            </div>
-                        </div>
+                    <div class="navbar-item is-hidden-mobile">
+                        <search-item/>
                     </div>
                 </div>
             </div>
@@ -64,12 +45,11 @@
 </template>
 
 <script>
-import { doAlgoliaSearch } from '../plugins/algoliasearch'
-import SearchPopup from "./SearchPopup"
+import SearchItem from "./SearchItem"
 
 export default {
     name: "Navbar",
-    components: {SearchPopup},
+    components: {SearchItem},
     data: function () {
         return {
             currentTab: 'home',
@@ -95,10 +75,7 @@ export default {
                 key: 'orography'
             }],
             isActive: false,
-            textSearch: '',
-            isActiveSearch: false,
-            dataSearchs: [],
-            focusflag: false
+            showModal: false
         }
     },
     methods: {
@@ -108,38 +85,6 @@ export default {
         },
         doClickOutsideNav () {
             if (this.isActive) this.isActive = false
-        },
-        clickedChoiceSearchItem(dataSearch) {
-            this.isActiveSearch = false
-            this.textSearch = ''
-        },
-        focusSearchInput() {
-            this.focusflag = true
-            if (this.dataSearchs .length > 0) {
-                this.isActiveSearch = true
-            }
-        },
-        blurSearchInput() {
-            this.focusflag = false
-        },
-        doClickOutsideSearchPopup() {
-            if (!this.focusflag) {
-                this.isActiveSearch = false
-                this.focusflag = false
-            }
-        }
-    },
-    watch: {
-        textSearch: function (text) {
-            if (text.length > 0) {
-                doAlgoliaSearch(text, (hits) => {
-                    this.dataSearchs = hits
-                    this.isActiveSearch = true
-                })
-            } else {
-                this.isActiveSearch = false
-                this.dataSearchs = []
-            }
         }
     }
 }
@@ -147,10 +92,15 @@ export default {
 
 <style scoped>
 nav.navbar {
-    height: 6rem !important;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06) !important;
 }
 .dropdown-content {
     padding-bottom: 0;
+}
+.navbar-burger {
+    margin-left: unset;
+}
+.margin-left-auto {
+    margin-left: auto;
 }
 </style>

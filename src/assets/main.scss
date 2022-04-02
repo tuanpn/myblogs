@@ -1,6 +1,8 @@
 @import '~bulma';
+@import "~bulma/bulma.sass";
 @import "~@creativebulma/bulma-divider";
 @import url('~font-awesome/css/font-awesome.min.css');
+@import 'modal';
 $navbar-height: 2rem;
 .content.is-small {
   font-size: 0.9rem;
@@ -11,4 +13,22 @@ $navbar-height: 2rem;
 
 .main {
   padding-bottom: 20px;
+}
+
+.search-item {
+  @include mobile {
+    width: 100% !important;
+  }
+  .control {
+    @include mobile {
+      width: 100% !important;
+    }
+  }
+}
+.search-popup {
+  @include mobile {
+    width: 100% !important;
+    height: 100%;
+    max-height: 80vh !important;
+  }
 }
