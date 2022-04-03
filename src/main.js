@@ -21,6 +21,7 @@ function changeLanguage (langType) {
 app.config.globalProperties.$language = ref('VN')
 changeLanguage('VN')
 app.config.globalProperties.$showModal = ref(false)
+app.config.globalProperties.$isDesktop = window.screen.width >= 1024
 
 app.directive("click-outside", clickOutside)
 app.use(store).use(router).mount('#app')

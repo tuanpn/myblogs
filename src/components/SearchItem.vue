@@ -74,7 +74,9 @@ export default {
         }
     },
     mounted() {
-        this.focusSearch()
+        if (!this.$isDesktop) {
+            this.focusSearch()
+        }
     },
     watch: {
         textSearch: function (text) {
