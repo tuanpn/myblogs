@@ -2,16 +2,24 @@
     <div class="search-item dropdown is-right"
          :class="isActiveSearch ? 'is-active' : ''"
     >
-        <div class="control has-icons-left dropdown-trigger">
+        <div class="control has-icons-left has-icons-right dropdown-trigger">
             <input
+                    ref="searchInputRef"
                     class="input is-rounded"
                     type="text"
                     :placeholder="$t('textSearch')"
                     v-model="textSearch"
-                    @focus="focusSearchInput"
-                    @blur="blurSearchInput"
+                    @focus.self="focusSearchInput"
+                    @blur.self="blurSearchInput"
             >
             <span class="icon is-left"><i class="fa fa-search"></i></span>
+            <span class="icon is-right clear-text-search"
+                  style="pointer-events: all; cursor: pointer"
+                  v-show="textSearch.length > 0"
+                  @click="textSearch = ''"
+            >
+                <i class="fa fa-close"></i>
+            </span>
         </div>
         <div class="dropdown-menu" id="dropdown-menu2" role="menu">
             <div class="dropdown-content">
@@ -60,7 +68,13 @@ export default {
                 this.isActiveSearch = false
                 this.focusflag = false
             }
+        },
+        focusSearch() {
+            this.$refs.searchInputRef.focus()
         }
+    },
+    mounted() {
+        this.focusSearch()
     },
     watch: {
         textSearch: function (text) {
@@ -78,6 +92,10 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.search-item {
+    .clear-text-search {
+        cursor: pointer;
+    }
+}
 </style>

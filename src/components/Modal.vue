@@ -2,6 +2,9 @@
     export default {
         props: {
             show: Boolean
+        },
+        mounted() {
+            this.$emit('open')
         }
     }
 </script>
@@ -14,11 +17,6 @@
                      @click.self="$emit('close')"
                 >
                     <div class="modal-header">
-                        <!--<button class="button icon-close is-danger">-->
-                            <!--<span class="icon is-small">-->
-                              <!--<i class="fa fa-times" @click="$emit('close')"></i>-->
-                            <!--</span>-->
-                        <!--</button>-->
                         <slot name="header"></slot>
                     </div>
 

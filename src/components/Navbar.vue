@@ -58,7 +58,7 @@ export default {
                 url: '/',
                 key: 'home'
             }, {
-                name: 'Khoa học công nghệ',
+                name: 'Công nghệ',
                 url: '/technology',
                 key: 'technology'
             }, {

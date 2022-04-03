@@ -2,9 +2,12 @@
   <navbar/>
   <div class="main">
     <router-view/>
-    <modal :show="$showModal.value" @close="$showModal.value = false">
+    <modal :show="$showModal.value"
+           @close="$showModal.value = false"
+    >
       <template #body>
         <search-item
+                ref="searchItemRef"
                 @close="$showModal.value = false"
         />
       </template>

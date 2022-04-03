@@ -3,7 +3,7 @@ export default {
     title: 'Blog của Dế Mèn',
     more: 'Nhiều hơn ...',
     me: 'Tôi',
-    technology: 'Khoa học và công nghệ',
+    technology: 'Công nghệ',
     technologyContent: 'Là kỹ sư kỹ thuật phần mềm, sau nhiều năm tham gia phát triển nhiều loại dự án khác nhau như game, web, app, phần mềm doanh nghiệp. ' +
         'Tôi đã đúc rút được ít nhiều kinh nghiệm muốn chia sẽ với những ai cùng sở thích. Phần mềm là một lĩnh vực phụ thuộc nhiều vào con người. Khả năng ' +
         'hệ thống hoá, khả năng lập trình, kỹ năng công nghệ, kinh nghiệm làm việc, tầm bao quát khác nhau ở từng người. ' +
