@@ -1,5 +1,5 @@
 <template>
-    <div v-for="(postGroup, index) in posts"
+    <div v-for="(postGroup, index) in currentPosts"
          :key="index"
          class="tile is-ancestor">
         <div v-for="(post) in postGroup"
@@ -20,10 +20,23 @@
 </template>
 
 <script>
+const CHUNK_SIZE = 4
+
 export default {
     name: "Articles",
     props: {
         posts: Array
+    },
+    computed: {
+        currentPosts: function () {
+            let currentPosts = []
+            let i,j
+            let chunk = CHUNK_SIZE
+            for (i = 0,j = this.posts.length; i < j; i += chunk) {
+                currentPosts.push(this.posts.slice(i, i + chunk))
+            }
+            return currentPosts
+        }
     }
 }
 </script>
