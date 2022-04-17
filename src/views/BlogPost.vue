@@ -8,11 +8,11 @@
                           is-8-desktop is-offset-2-desktop
                           is-8-widescreen is-offset-2-widescreen
                           is-8-fullhd is-offset-2-fullhd">
-                <h1 class="is-size-2 is-primary has-text-primary">{{ post.title }}</h1>
+                <h1 class="is-size-3 is-primary has-text-primary">{{ post.title }}</h1>
                 <h4 class="has-text-info">{{ post.author.first_name }} {{ post.author.last_name }}</h4>
-                <span v-if="post.updated">{{ new Date(post.updated).toLocaleDateString() }}</span>
+                <span class="is-size-6" v-if="post.updated">{{ new Date(post.updated).toLocaleDateString() }}</span>
                 <div class="mt-5"></div>
-                <div v-html="post.body"></div>
+                <span class="is-size-6" v-html="post.body"></span>
                 <div class="mb-6"></div>
             </div>
             <div class="column is-2-desktop

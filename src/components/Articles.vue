@@ -4,16 +4,17 @@
          class="tile is-ancestor">
         <div v-for="(post) in postGroup"
              :key="post.slug"
-             class="tile is-parent is-4">
-            <article class="tile is-child box">
-                <router-link class="content is-medium"
-                             :to="/blog/ + post.slug"
-                >
-                    <h1 class="title has-text-black is-3">{{ post.title }}</h1>
-                    <h2 class="subtitle is-5 has-text-grey">{{ new Date(post.updated).toLocaleDateString() }}</h2>
-                    <div class="content"><p class="has-text-dark">{{ post.summary }}</p></div>
-                </router-link>
-            </article>
+             class="tile is-parent is-3">
+            <router-link class="content is-medium"
+                         :to="/blog/ + post.slug"
+            >
+                <article class="tile is-child box">
+
+                        <h1 class="title has-text-black is-4">{{ post.title }}</h1>
+                        <h5 class="subtitle is-6 has-text-grey">{{ new Date(post.updated).toLocaleDateString() }}</h5>
+                        <span class="content"><p class="has-text-dark is-size-6">{{ post.summary }}</p></span>
+                </article>
+            </router-link>
         </div>
     </div>
 </template>

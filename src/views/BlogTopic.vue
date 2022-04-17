@@ -34,7 +34,7 @@ export default {
             }).then(res => {
                 let array = res.data.data
                 let i,j
-                let chunk = 3
+                let chunk = 4
                 for (i = 0,j = array.length; i < j; i += chunk) {
                     this.posts.push(array.slice(i, i + chunk))
                 }
