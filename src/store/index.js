@@ -9,6 +9,11 @@ export default createStore({
     getters: {
         getLastPost(state) {
             return state.currentCategory ? state.lastPostObj[state.currentCategory] : []
+        },
+        getLastPostByCategory(state) {
+            return (category) => {
+                return state.lastPostObj[category]
+            }
         }
     },
     mutations: {

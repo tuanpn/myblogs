@@ -50,9 +50,9 @@ export default {
             }
         },
         currentPost: function (newVal, oldVal) {
-            let lastPost = this.lastPosts.find(lastPost => lastPost.url === this.currentPost.url)
+            let lastPost = this.lastPosts?.find(lastPost => lastPost.url === this.currentPost.url)
             if (lastPost) lastPost.isCurrent = true
-            let oldCurrentPost = this.lastPosts.find(lastPost => lastPost.url === oldVal.url)
+            let oldCurrentPost = this.lastPosts?.find(lastPost => lastPost.url === oldVal.url)
             if (oldCurrentPost) oldCurrentPost.isCurrent = false
         }
     }

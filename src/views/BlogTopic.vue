@@ -30,6 +30,10 @@ export default {
             if (this.$route.name.includes('blog')) {
                 return
             }
+            if (this.isAlreadyGetAllPost) {
+                return
+            }
+            this.loading = true
             this.pageCurrent = page
             let posts = this.posts
             butter.post.list({
@@ -46,10 +50,11 @@ export default {
                 for (let i = 0; i < array.length; i ++) {
                     posts.push(array[i])
                 }
-                this.$store.commit('saveLastPosts', {category: this.$route.name, posts: array})
+                this.$store.commit('saveLastPosts', {category: this.$route.name, posts: posts})
                 this.$store.commit('setCurrentCategory', this.$route.name)
                 this.posts = posts
                 this.loading = false
+                this.isAlreadyGetAllPost = false
             }).catch(() => {
                 this.isAlreadyGetAllPost = true
                 this.loading = false
@@ -57,30 +62,37 @@ export default {
         },
         handleScroll (el) {
             window.onscroll = () => {
-                if (this.isAlreadyGetAllPost) {
-                    return
-                }
                 let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop)
                     + window.innerHeight === document.documentElement.offsetHeight
                 if (bottomOfWindow) {
-                    this.loading = true
                     this.getPosts(this.pageCurrent + 1, PAGING_SIZE)
                 }
+            }
+        },
+        handleInitPosts() {
+            let lastPosts = this.$store.getters.getLastPostByCategory(this.$route.name)
+            if (lastPosts && lastPosts.length > 0) {
+                this.loading = false
+                this.posts = lastPosts
+                this.pageCurrent = Math.floor(lastPosts.length / PAGING_SIZE) + 1
+                this.$store.commit('setCurrentCategory', this.$route.name)
+            } else {
+                this.isAlreadyGetAllPost = false
+                this.posts = []
+                this.getPosts(1, PAGING_SIZE)
             }
         }
     },
     created () {
         this.handleScroll()
-        this.getPosts(1, PAGING_SIZE)
+        this.handleInitPosts()
     },
     unmounted () {
         window.removeEventListener('scroll', this.handleScroll);
     },
     watch: {
         $route (to, from) {
-            this.isAlreadyGetAllPost = false
-            this.posts = []
-            this.getPosts(1, PAGING_SIZE)
+            this.handleInitPosts()
         }
     }
 }
