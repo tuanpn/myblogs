@@ -4,8 +4,8 @@
              v-click-outside="doClickOutsideNav"
         >
             <div class="navbar-brand">
-                <a class="navbar-item" href="../">
-                    <img src="../assets/logo.png" alt="Logo">
+                <a class="navbar-item" href="../..">
+                    <img src="../../assets/logo.png" alt="Logo">
                     <h2 class="ml-2 is-size-5 has-text-weight-semibold">{{ $t('titleWeb') }}</h2>
                 </a>
                 <a class="navbar-item is-hidden-desktop margin-left-auto"

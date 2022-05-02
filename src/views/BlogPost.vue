@@ -26,7 +26,7 @@
 
 <script>
 import { butter } from '../plugins/buttercms'
-import RightAside from "../components/RightAside"
+import RightAside from "../components/post/RightAside"
 
 export default {
     name: "BlogPost",

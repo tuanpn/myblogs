@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { doAlgoliaSearch } from '../plugins/algoliasearch'
+import { doAlgoliaSearch } from '../../plugins/algoliasearch'
 import SearchPopup from "./SearchPopup"
 
 export default {

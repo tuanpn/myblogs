@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import Navbar from "./components/Navbar"
-import FooterBlogs from "./components/FooterBlogs"
-import Modal from './components/Modal.vue'
-import SearchItem from "./components/SearchItem"
+import Navbar from "./components/main/Navbar"
+import FooterBlogs from "./components/main/FooterBlogs"
+import Modal from './components/global/Modal.vue'
+import SearchItem from "./components/main/SearchItem"
 
 export default {
   components: {

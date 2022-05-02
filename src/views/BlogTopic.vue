@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Articles from "../components/Articles"
+import Articles from "../components/post/Articles"
 import { butter } from '../plugins/buttercms'
 const PAGING_SIZE = 8
 
