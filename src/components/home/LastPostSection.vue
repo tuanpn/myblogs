@@ -1,5 +1,5 @@
 <template>
-    <section class="hero is-white is-medium no-horizontal-padding">
+    <section class="hero is-white is-medium no-horizontal-padding last-post-section">
         <div class="hero-body no-horizontal-padding is-flex no-padding-bottom">
             <div ref="lastPostContainerRef" class="columns is-2 is-mobile">
                 <router-link class="column is-narrow"
@@ -111,15 +111,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container-post {
-    position: absolute;
-}
-.post-card {
-    width: 400px;
-    height: 308px;
-    transition: transform .4s;
-}
-.post-card:hover {
-    transform: scale(1.08);
+.last-post-section {
+    width: 100%;
+    max-width: 100vw;
+    .post-card {
+        width: 400px;
+        height: 308px;
+        transition: transform .4s;
+    }
+    .post-card:hover {
+        transform: scale(1.08);
+    }
 }
 </style>

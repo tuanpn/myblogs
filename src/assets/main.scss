@@ -4,7 +4,15 @@
 @import url('~font-awesome/css/font-awesome.min.css');
 @import 'modal';
 @import "home";
+@import "search";
+
 $navbar-height: 2rem;
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .content.is-small {
   font-size: 0.9rem;
 }
@@ -14,23 +22,6 @@ $navbar-height: 2rem;
 
 .main {
   padding-bottom: 20px;
-}
-
-.search-item {
-  @include mobile {
-    width: 100% !important;
-  }
-  .control {
-    @include mobile {
-      width: 100% !important;
-    }
-  }
-}
-.search-popup {
-  @include mobile {
-    width: 100% !important;
-    height: 100%;
-  }
 }
 
 .no-horizontal-padding {

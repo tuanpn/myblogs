@@ -1,0 +1,16 @@
+.search-item {
+  @include mobile {
+    width: 100% !important;
+  }
+  .control {
+    @include mobile {
+      width: 100% !important;
+    }
+  }
+}
+.search-popup {
+  @include mobile {
+    width: 100% !important;
+    height: 100%;
+  }
+}
