@@ -32,3 +32,12 @@ $navbar-height: 2rem;
     height: 100%;
   }
 }
+
+.no-horizontal-padding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.no-padding-bottom {
+  padding-bottom: 0 !important;
+}

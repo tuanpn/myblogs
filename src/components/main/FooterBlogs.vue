@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer">
+    <footer class="footer pl-0 pr-0">
         <div class="is-flex is-align-content-center is-justify-content-center content has-text-centered">
             <p style="margin: 0">
                 <strong>@2021 <a href="http://mylife68.org">Dế mèn</a></strong>.

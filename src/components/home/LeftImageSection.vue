@@ -1,6 +1,6 @@
 <template>
     <section ref="refSection" class="hero is-white is-medium">
-        <div class="hero-body">
+        <div class="hero-body no-padding-bottom">
             <div class="container">
                 <div class="columns  is-vcentered">
                     <div data-aos="fade-left" class="column
@@ -19,8 +19,8 @@
                           is-5-desktop is-offset-1-desktop
                           is-5-widescreen is-offset-1-widescreen
                           is-5-fullhd is-offset-1-fullhd">
-                        <h1 class="titled title is-1 mb-6">{{ title }}</h1>
-                        <h2 class="subtitled subtitle">{{ content }}</h2>
+                        <h1 class="title is-1 mb-6">{{ title }}</h1>
+                        <h2 class="content is-medium">{{ content }}</h2>
                         <router-link class="button has-text-link"
                                      :to="to">
                             {{ $t('more') }}

@@ -7,6 +7,8 @@
             />
         </section>
 
+        <last-post-section/>
+
         <left-image-section
             ref="technologySectionRef"
             :title="$t('technology')"
@@ -45,10 +47,11 @@ import IntroduceSection from "../components/home/IntroduceSection"
 import LeftImageSection from "../components/home/LeftImageSection"
 import RightImageSection from "../components/home/RightImageSection"
 import SloganSection from "../components/home/SloganSection"
+import LastPostSection from "../components/home/LastPostSection"
 
 export default {
     name: "BlogHomes",
-    components: {SloganSection, RightImageSection, LeftImageSection, IntroduceSection},
+    components: {LastPostSection, SloganSection, RightImageSection, LeftImageSection, IntroduceSection},
     mounted() {
         AOS.init({
             once: true
